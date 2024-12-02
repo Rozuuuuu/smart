@@ -2,20 +2,147 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f7f5f2;
+  color: #333;
+  margin: 0;
+  padding: 20px;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+.card-container {
+  display: flex;
+  gap: 20px;
+  overflow-x: auto;
+  padding: 10px;
+  scroll-snap-type: x mandatory;
+  transition: transform 0.5s ease;
+}
+
+.card-container::-webkit-scrollbar {
+  display: none;
+}
+
+.card {
+  background: #fff;
+  border-radius: 10px;
+  padding: 20px;
+  width: 300px;
+  height: 400px;
+  flex: 0 0 auto;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  scroll-snap-align: start;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  overflow-y: auto;
+}
+
+.card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+}
+
+@media (max-width: 640px) {
+  .card {
+    width: 90vw;
   }
 }
 
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+header {
+  text-align: center;
+  margin-bottom: 20px;
 }
+
+header h1 {
+  font-size: 2em;
+}
+
+header input, header button {
+  margin: 10px 5px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+#greeting {
+  font-size: 1.2em;
+  margin-top: 10px;
+  font-weight: bold;
+}
+
+button {
+  margin: 10px auto;
+  padding: 10px 20px;
+  background-color: #235d3a;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #1e4c33;
+}
+
+.task-item, .reminder-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.task-checkbox, .reminder-checkbox {
+  margin-right: 10px;
+}
+
+.delete-task, .delete-reminder {
+  background-color: red;
+  color: white;
+  border: none;
+  padding: 5px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.delete-task:hover, .delete-reminder:hover {
+  background-color: darkred;
+}
+
+.task-label.completed {
+  text-decoration: line-through;
+  color: #999;
+}
+
+#health-tip, #fun-fact, #daily-quote {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 150px;
+  font-size: 1.5em;
+  color: #235d3a;
+  text-align: center;
+  font-weight: bold;
+  padding: 10px;
+  margin: 0;
+  background-color: #C8EAD1;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+#weather-data img {
+  width: 100px;
+  height: auto;
+  margin: 10px 0;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#weather-card, #news-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
